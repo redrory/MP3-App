@@ -1,0 +1,19 @@
+Mp3app::Application.routes.draw do
+  get "songs/index"
+
+  get "songs/upload"
+
+  get "songs/delete"
+
+  match "songs/upload", :as => "upload"
+  match "songs/delete", :as => "delete"
+  
+  root :to => "songs#index"
+  # root :to => "welcome#index"
+
+  # See how all your routes lay out with "rake routes"
+
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id(.:format)))'
+end

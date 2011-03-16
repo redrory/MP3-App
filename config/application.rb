@@ -10,8 +10,8 @@ module Mp3app
     config.filter_parameters += [:password]
 
     AWS::S3::Base.establish_connection!(
-      :access_key_id     => 'insert key', #mine removed
-      :secret_access_key => 'insert secret' #mine removed
+      :access_key_id     => 'AKIAJ2WYUVHS6NWVK7PA',
+      :secret_access_key => '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'
     )
 
     #APP_CONFIG['s3bucket'] = 'rorymusicapp'

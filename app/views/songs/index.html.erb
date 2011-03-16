@@ -1,19 +1,36 @@
-<h1> MP3 App</h1>
+<header>
+	 <h1> MP3 App</h1>
+</header>
 
-<h2>Upload a new MP3:</h2>
-<%= form_tag upload_path, :method => "post", :multipart => true do %>
-    <%= file_field_tag "mp3file" %>
-    <%= submit_tag "Upload" %>
-<% end %>
+<div class = "clear"></div>
+<section id = "sidebar">
+	<h2> HTML Audio</h2>
+	<section id = "audio">
+		No Song is currently playing.
+	</section>
+		
+	
+	<h2>Upload a new MP3:</h2>
+	<%= form_tag upload_path, :method => "post", :multipart => true do %>
+	    <%= file_field_tag "mp3file" %>
+	    <%= submit_tag "Upload" %>
+	<% end %>
+</section>
 
+<section id = "main">
+	<h2> Listen to the mp3 file </h2>
 
-<h2>Download and Delete Existing MP3's</h2>
-<table>
-<% @songs.each do |song| %>
-    <tr>
-        <td><%= song.key %></td>
-        <td><%= link_to "Delete",  "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></td>
-		<td><%= link_to "Download", download_url_for (song.key)%> </td>
-    </tr>
-<% end %>
-</table>
+	<h2>Download and Delete Existing MP3's</h2>
+	<table>
+	<% @songs.each do |song| %>
+	    <tr>
+	        <td><%= song.key %></td>
+	        <td><%= link_to "Delete",  "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></td>
+		    <td><%= link_to "HTML5 Audio", download_url_for(song.key), :class => "html5" %></td>
+				
+			<td><%= link_to "Download", download_url_for (song.key)%> </td>
+	    </tr>
+	<% end %>
+	</table>
+</section>
+<div class = "clear"></div>
